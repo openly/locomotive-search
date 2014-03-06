@@ -8,8 +8,8 @@ module Locomotive
                 def search
                     if(@data == nil)
                         print "Contacting google CSE for results.\n";
-                        cx = GOOGLE_SEARCH_CX || '009946976809586658172%3Avdj_rjjftbq'
-                        key = GOOGLE_SEARCH_KEY || 'AIzaSyARds6-ZkI0XkRu-6a0H_HcGhtkgOFzgtQ'
+                        cx = ::GOOGLE_SEARCH_CX || '009946976809586658172%3Avdj_rjjftbq'
+                        key = ::GOOGLE_SEARCH_KEY || 'AIzaSyARds6-ZkI0XkRu-6a0H_HcGhtkgOFzgtQ'
                         url = "https://www.googleapis.com/customsearch/v1?cx=#{cx}&key=#{key}&q=" + @context.registers[:controller].params[:q];
                         @data = JSON.parse(RestClient.get(url));
                     end
